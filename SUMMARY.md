@@ -1,41 +1,39 @@
-Internationalization Summary (6 Languages)
+平井マニュアルサイト（hirai）6言語化 検証サマリ
 
-Scope
-- Implemented client-side i18n across the Hirai manual site with a single HTML per page and no per-language copies.
-- Supported languages: English (en), Japanese (ja), Simplified Chinese (zh-CN), Korean (ko), French (fr), Spanish (es).
-- Language is persisted in localStorage and defaults to the browser language on first visit if supported, otherwise English.
-- All existing URLs kept unchanged (no query params or path changes). The key page was removed as required (see Flags), and the Access page includes a code-delivery note.
+1. ブランチの状態
+- ローカル/リモートに `feat/i18n-6lang` が存在。
+  - ローカル先頭: 459c6a4 feat(i18n): add 6-language client-side i18n with shared assets; remove key page, add access note; wire language switcher and translations across pages; add SUMMARY.md
+  - `origin/feat/i18n-6lang`: 459c6a4 と一致
+- `main` との差分（main..feat/i18n-6lang）
+  - 追加: `assets/i18n.js`, `assets/i18n.css`, `SUMMARY.md`
+  - 更新: `index.html`, `access/index.html`, `house-rules/index.html`, `emergency/index.html`
+  - 削除: `how-to-open/index.html`（鍵ページ）
 
-Changes
-- Added shared assets:
-  - assets/i18n.js: translation engine, language detection/persistence, and a floating language switcher.
-  - assets/i18n.css: minimal styles for the switcher.
-- Updated pages to wire i18n and include the language switcher on every page:
-  1. /index.html
-     - Added data-i18n keys for hero, address, and menu labels.
-     - Removed the “How to Open” menu button (page deleted per Hirai-specific requirement).
-     - Included assets/i18n.css and assets/i18n.js.
-  2. /access/index.html
-     - Added data-i18n keys for titles, address, note, and Google Maps link.
-     - Included assets/i18n.css and assets/i18n.js.
-     - Added a note: “Your keybox code will be sent to you by message before check-in.” (translated in all 6 languages).
-  3. /house-rules/index.html
-     - Added data-i18n keys for title, help text, list items, and the Japanese reminder line.
-     - Included assets/i18n.css and assets/i18n.js.
-  4. /emergency/index.html
-     - Added data-i18n keys for title, section heading, labels for Police and Fire/Ambulance, and contact guidance lines.
-     - Included assets/i18n.css and assets/i18n.js.
+2. 6言語化の完了条件の検証結果
+- 言語切替（lang-switcher）：全ページに `assets/i18n.js` を読み込み、JS がフローティングスイッチャーを自動挿入。OK
+- 共有 `assets/i18n.js` の利用：全ページで `<script ... i18n.js defer>` を確認。OK
+- localStorage で保持：`localStorage('i18n_lang')` に保存。OK
+- 初回はブラウザ言語をデフォルト：`navigator.language` を正規化し対応言語なら適用。OK
+- URL は不変：クライアント置換方式でパス/クエリ変更なし。OK
+- ページの複製なし：各ページは単一HTMLのみ（言語別ファイル無し）。OK
 
-How It Works
-- Elements with data-i18n are replaced with translated text.
-- Elements with data-i18n-html receive innerHTML (used where <br> is needed, e.g., the address line).
-- Elements with data-i18n-attr set a specific attribute (e.g., aria-label for the back button).
-- A floating language switcher (EN / JA / ZH / KO / FR / ES) appears on all pages; the current selection is highlighted.
+3. 鍵・キーボックス等のアクセスコード混入チェック
+- `how-to-open/index.html` は削除済み（本ブランチでも D 扱い）。OK
+- 全HTMLをキーワード走査（鍵/キーボックス/暗証/番号/keybox/access code 等）し、案内文以外のコード表記は無し。OK
+- アクセスページには「チェックイン前にメッセージでコードを送る」旨の案内のみで、番号の掲載なし。OK
+- Wi‑Fi パスワードは今回のサイト内に掲載なし（掲載されていても許容範囲だが現状なし）。OK
 
-Flags (Sensitive Info / Codes)
-- The page how-to-open/index.html previously contained a keybox code (9125). Per the requirement to NEVER include key numbers or access codes and the Hirai-specific instruction that the key page has already been deleted, the page has been removed and the menu link on the home page was removed as well.
-- The Access page now includes a neutral note indicating the keybox code will be sent by message before check-in. No codes are present anywhere in the site.
+4. 補完・修正の要否
+- 既存実装で完了条件を全て満たしているため、コード修正・追補は不要。
+- 本サマリ（SUMMARY.md）のみ最新の検証結果に差し替え（機微情報の具体的番号は記載しない運用に統一）。
 
-Notes
-- The site’s address remains written with Japanese postal formatting across all languages, matching the original content. UI labels, notices, and guidance are translated.
-- The html lang attribute updates dynamically to the selected language at runtime.
+5. 反映（PRは不要）
+- 作業ブランチ: `feat/i18n-6lang`
+- 本サマリの更新のみコミット/プッシュ済み（このファイル）。
+
+6. 実装補足
+- 翻訳適用: `data-i18n`（textContent）, `data-i18n-html`（innerHTML）, `data-i18n-attr`（任意属性）に対応。
+- 言語: en/ja/zh-CN/ko/fr/es をサポート。非対応言語は英語フォールバック。
+- `<html lang>` は選択言語に同期。
+
+以上の通り、6言語化は要件を満たしており、鍵番号等の機微情報の露出はありません。
