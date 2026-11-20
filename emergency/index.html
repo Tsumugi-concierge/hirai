@@ -9,24 +9,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../assets/i18n.css">
 </head>
 <body>
 <main>
   <header class="top">
-    <a class="back" href="../" aria-label="Back">‹</a>
+    <a class="back" href="../" data-i18n="top.back" data-i18n-attr="aria-label" aria-label="Back">‹</a>
     <span class="top-emoji" aria-hidden="true">📞</span>
-    <h1>Emergency</h1>
+    <h1 data-i18n="em.title">Emergency</h1>
   </header>
 
   <section class="content">
-    <h2>Emergency numbers in Japan</h2>
+    <h2 data-i18n="em.numbers">Emergency numbers in Japan</h2>
     <ul>
-      <li>Police: <a href="tel:110">110</a></li>
-      <li>Fire / Ambulance: <a href="tel:119">119</a></li>
+      <li><span data-i18n="em.police">Police</span>: <a href="tel:110">110</a></li>
+      <li><span data-i18n="em.fire">Fire / Ambulance</span>: <a href="tel:119">119</a></li>
     </ul>
-    <p>For non-urgent questions about the room, please contact the host through your booking platform.</p>
-    <p>お部屋に関する通常のお問い合わせは、予約サイトのメッセージからホストへご連絡ください。</p>
+    <p data-i18n="em.contact">For non-urgent questions about the room, please contact the host through your booking platform.</p>
+    <p data-i18n="em.contact.ja">お部屋に関する通常のお問い合わせは、予約サイトのメッセージからホストへご連絡ください。</p>
   </section>
 </main>
+<script src="../assets/i18n.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,36 @@
+/* Lightweight styles for the floating language switcher */
+.i18n-switcher {
+  position: fixed;
+  top: env(safe-area-inset-top, 0px);
+  right: 8px;
+  z-index: 1000;
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: saturate(180%) blur(8px);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.i18n-switcher button {
+  appearance: none;
+  border: none;
+  background: transparent;
+  font: 600 12px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #333;
+  padding: 6px 8px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.i18n-switcher button[aria-current="true"] {
+  background: #e6f5ec;
+  color: #0d7a43;
+}
+
+@media (max-width: 480px) {
+  .i18n-switcher { right: 4px; padding: 4px; }
+  .i18n-switcher button { padding: 6px; font-size: 11px; }
+}

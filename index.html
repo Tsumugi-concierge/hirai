@@ -9,60 +9,54 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/i18n.css">
 </head>
 <body>
 <main>
   <section class="hero">
     <div class="mark" aria-hidden="true">🏠</div>
-    <h1>Hirai</h1>
-    <p>Maison de cinq 2F / 3F</p>
+    <h1 data-i18n="hero.title">Hirai</h1>
+    <p data-i18n="hero.subtitle">Maison de cinq 2F / 3F</p>
   </section>
 
   <section class="notice" aria-label="Property information">
-    <strong>Address</strong>
-    <p>〒132-0035 東京都江戸川区平井5丁目58-2<br>Maison de cinq 2・3F</p>
-    <p>2F and 3F are used together as one reservation.</p>
+    <strong data-i18n="notice.address.label">Address</strong>
+    <p data-i18n="notice.address.text" data-i18n-html>〒132-0035 東京都江戸川区平井5丁目58-2<br>Maison de cinq 2・3F</p>
+    <p data-i18n="notice.address.note">2F and 3F are used together as one reservation.</p>
   </section>
 
   <nav class="menu" aria-label="Guest menu">
     <div class="menu-group">
       <div class="menu-group-head">
-        <span class="menu-group-title">Arriving</span>
+        <span class="menu-group-title" data-i18n="menu.arriving">Arriving</span>
         <span class="menu-group-line"></span>
       </div>
       <div class="btn-grid">
         <a href="access/" class="pl-btn">
           <span class="pl-icon-wrap"><span class="pl-icon" aria-hidden="true">📍</span></span>
-          <span class="pl-en">Access</span>
-          <span class="pl-ja">アクセス</span>
-        </a>
-        <a href="how-to-open/" class="pl-btn">
-          <span class="pl-icon-wrap"><span class="pl-icon" aria-hidden="true">🔑</span></span>
-          <span class="pl-en">How to Open</span>
-          <span class="pl-ja">鍵の開け方</span>
+          <span data-i18n="menu.access">Access</span>
         </a>
       </div>
     </div>
 
     <div class="menu-group">
       <div class="menu-group-head">
-        <span class="menu-group-title">Inside the Home</span>
+        <span class="menu-group-title" data-i18n="menu.inside">Inside the Home</span>
         <span class="menu-group-line"></span>
       </div>
       <div class="btn-grid">
         <a href="house-rules/" class="pl-btn">
           <span class="pl-icon-wrap"><span class="pl-icon" aria-hidden="true">📋</span></span>
-          <span class="pl-en">House Rules</span>
-          <span class="pl-ja">ハウスルール</span>
+          <span data-i18n="menu.houseRules">House Rules</span>
         </a>
         <a href="emergency/" class="pl-btn">
           <span class="pl-icon-wrap"><span class="pl-icon" aria-hidden="true">📞</span></span>
-          <span class="pl-en">Emergency</span>
-          <span class="pl-ja">緊急時</span>
+          <span data-i18n="menu.emergency">Emergency</span>
         </a>
       </div>
     </div>
   </nav>
 </main>
+<script src="assets/i18n.js" defer></script>
 </body>
 </html>

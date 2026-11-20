@@ -9,21 +9,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../assets/i18n.css">
 </head>
 <body>
 <main>
   <header class="top">
-    <a class="back" href="../" aria-label="Back">‹</a>
+    <a class="back" href="../" data-i18n="top.back" data-i18n-attr="aria-label" aria-label="Back">‹</a>
     <span class="top-emoji" aria-hidden="true">📍</span>
-    <h1>Access</h1>
+    <h1 data-i18n="access.title">Access</h1>
   </header>
 
   <section class="content">
-    <h2>Address</h2>
-    <p>〒132-0035 東京都江戸川区平井5丁目58-2<br>Maison de cinq 2・3F</p>
-    <p>2F and 3F are used together as one reservation.</p>
-    <p><a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B1%9F%E6%88%B8%E5%B7%9D%E5%8C%BA%E5%B9%B3%E4%BA%955%E4%B8%81%E7%9B%AE58-2" target="_blank" rel="noopener">Open in Google Maps</a></p>
+    <h2 data-i18n="access.address.h">Address</h2>
+    <p data-i18n="notice.address.text" data-i18n-html>〒132-0035 東京都江戸川区平井5丁目58-2<br>Maison de cinq 2・3F</p>
+    <p data-i18n="notice.address.note">2F and 3F are used together as one reservation.</p>
+    <p data-i18n="access.keybox.note">Your keybox code will be sent to you by message before check-in.</p>
+    <p><a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B1%9F%E6%88%B8%E5%B7%9D%E5%8C%BA%E5%B9%B3%E4%BA%955%E4%B8%81%E7%9B%AE58-2" target="_blank" rel="noopener" data-i18n="access.maps">Open in Google Maps</a></p>
   </section>
 </main>
+<script src="../assets/i18n.js" defer></script>
 </body>
 </html>
